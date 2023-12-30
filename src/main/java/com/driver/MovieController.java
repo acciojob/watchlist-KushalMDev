@@ -1,6 +1,7 @@
 package com.driver;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,14 +48,14 @@ public class MovieController {
 		return new ResponseEntity<>(director,HttpStatus.CREATED);
 	}
 	@GetMapping("/get-movies-by-director-name/{director}")
-	public ResponseEntity<ArrayList<String>> getMoviesByDirectorName(@PathVariable String directorName){
-		ArrayList<String> list=movieService.getMoviesByDirectorName(directorName);
+	public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable String directorName){
+		List<String> list=movieService.getMoviesByDirectorName(directorName);
 		return new ResponseEntity<>(list,HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/get-all-movies")
-	public ResponseEntity<ArrayList<String>> findAllMovies(){
-		ArrayList<String> list=movieService.findAllMovies();
+	public ResponseEntity<List<String>> findAllMovies(){
+		List<String> list=movieService.findAllMovies();
 		return new ResponseEntity<>(list,HttpStatus.CREATED);
 	}
 	
